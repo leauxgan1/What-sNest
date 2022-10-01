@@ -1,8 +1,17 @@
 
-* {
-    background-color: grey ;
-}
-
 body {
+    background-color: grey;
+
     color: white;
 } 
+h1 {
+    color: blue;
+}
+
+.cardsheet {
+    position: absolute;
+    
+    background-color: orange;
+    width: auto;
+    height: auto;
+}

@@ -1,7 +1,21 @@
-function printHelloWorld(elemID) {
+let dependencies = {
+    sheetArea: document.getElementById("sheetArea")
+};
+
+function printText(elemID, txt) {
     header = document.getElementById(elemID);
-    header.innerHTML = "Hello World";
-    console.log("RAN");
+    header.innerHTML = txt;
 }
 
-printHelloWorld("firstHeader");
+printText("firstHeader", "Hello, world!");
+
+
+function createTextBox(content) {
+    let inputBox = document.createElement("input");
+    inputBox.setAttribute("type", "text");
+    inputBox.setAttribute("value", content);
+    inputBox.setAttribute("class", "cardsheet");
+    dependencies.sheetArea.appendChild(inputBox);
+}
+
+createTextBox("Your First Card-Sheet!");
