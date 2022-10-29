@@ -1,0 +1,26 @@
+import CardSheet from './components/cardSheet';
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <nav>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li><a href="">Contact</a></li>
+          <li><a href="">Sign Up/In</a></li>
+        </ul>
+      </nav>
+      <header className="App-header">
+        <h1>What's Nest</h1>
+        <div>
+          <CardSheet initialText="Type Here..."/>
+        </div>
+      </header>
+        
+    </div>
+  );
+}
+
+export default App;
