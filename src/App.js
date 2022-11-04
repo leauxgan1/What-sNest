@@ -1,5 +1,9 @@
-import CardSheet from './components/cardSheet';
+
+import CardSheet from './components/CardSheet';
+import AddButton from './components/AddButton';
 import './App.css';
+import React from 'react';
+
 
 function App() {
   return (
@@ -14,11 +18,9 @@ function App() {
       </nav>
       <header className="App-header">
         <h1>What's Nest</h1>
-        <div>
-          <CardSheet initialText="Type Here..."/>
-        </div>
       </header>
-        
+      <AddButton />
+      
     </div>
   );
 }

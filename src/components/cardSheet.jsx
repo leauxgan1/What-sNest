@@ -27,7 +27,7 @@ class CardSheet extends Component {
         const { target } = this.state;
         return (
           <div className="page main">
-            <Moveable
+            <Moveable 
               ref={ref(this, "moveable")}
               target={target}
               pinchThreshold={20}
@@ -40,29 +40,19 @@ class CardSheet extends Component {
               pinchable={true}
               origin={false}
               throttleDrag={1}
-              throttleRotate={0.2}
               throttleResize={1}
-              throttleScale={0.01}
               onDrag={this.onDrag}
               onResize={this.onResize}
               onScale={this.onScale}
               onWarp={this.onWarp}
               onRotate={this.onRotate}
               onPinch={this.onPinch}
-              onDragEnd={this.onEnd}
-              onScaleEnd={this.onEnd}
-              onResizeEnd={this.onEnd}
-              onWarpEnd={this.onEnd}
-
             />
             <div className="container">
               <div className="moveable">
-                <span>
-                    {this.props.initialText}
-                </span>
+                <input type="text" placeholder={this.props.initialText}></input>
               </div>
             </div>
-            <div className="label" ref={ref(this, "label")} />
           </div>
         );
       }
@@ -92,6 +82,10 @@ class CardSheet extends Component {
       onScale = ({ target, delta, clientX, clientY, isPinch }) => {
         const scaleX = this.frame.get("transform", "scaleX") * delta[0];
         const scaleY = this.frame.get("transform", "scaleY") * delta[1];
+        
+        // if clienty < this.frame.getY -> change pos of y to match and scale
+        // if clientx < this.frame.getX -> change pos of y to match and scale
+
         this.frame.set("transform", "scaleX", scaleX);
         this.frame.set("transform", "scaleY", scaleY);
         this.setTransform(target);
