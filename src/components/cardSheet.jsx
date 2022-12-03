@@ -51,6 +51,7 @@ class CardSheet extends Component {
             <div className="container">
               <div className="moveable">
                 <input type="text" placeholder={this.props.initialText}></input>
+                
               </div>
             </div>
           </div>
@@ -80,12 +81,9 @@ class CardSheet extends Component {
         this.setTransform(target);
       };
       onScale = ({ target, delta, clientX, clientY, isPinch }) => {
-        const scaleX = this.frame.get("transform", "scaleX") * delta[0];
-        const scaleY = this.frame.get("transform", "scaleY") * delta[1];
         
-        // if clienty < this.frame.getY -> change pos of y to match and scale
-        // if clientx < this.frame.getX -> change pos of y to match and scale
-
+        const scaleX = this.frame.get("transform", "scaleX") * 1;
+        const scaleY = this.frame.get("transform", "scaleY") * 1;
         this.frame.set("transform", "scaleX", scaleX);
         this.frame.set("transform", "scaleY", scaleY);
         this.setTransform(target);
@@ -100,6 +98,14 @@ class CardSheet extends Component {
       onResize = ({ target, clientX, clientY, width, height, isPinch }) => {
         this.frame.set("width", `${width}px`);
         this.frame.set("height", `${height}px`);
+        console.log(clientY);
+        console.log(parseInt(this.frame.get("top")));
+
+        if (clientY < this.frame.get("top")) {
+          console.log("SUCCESS");
+          this.frame.set("top", `${height - clientY}px`);
+        }
+
         this.setTransform(target);
       };
       onWarp = ({ target, clientX, clientY, delta, multiply }) => {

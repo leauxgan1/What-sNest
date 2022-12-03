@@ -15,7 +15,7 @@ class AddButton extends Component {
     cardList() {
         const rowList = [];
         for (let i = 0; i < this.state.cardCount; i++) {
-            rowList.push(<CardSheet initialText="Type Here..."/>);
+            rowList.push(<CardSheet initialText="~Title~" contentText = "Enter content here..."/>);
         }
         return rowList;
     }
